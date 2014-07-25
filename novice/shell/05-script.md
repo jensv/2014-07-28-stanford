@@ -355,7 +355,7 @@ She could have written it as:
 for datafile in *[AB].txt
 do
     echo $datafile
-    goostats -J 100 -r $datafile stats-$datafile
+    bash goostats -J 100 -r $datafile stats-$datafile
 done
 ~~~
 </div>
