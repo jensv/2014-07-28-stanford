@@ -46,7 +46,7 @@ $ whoami
 ~~~
 {:class="in"}
 ~~~
-vlad
+swc
 ~~~
 {:class="out"}
 
@@ -67,20 +67,20 @@ i.e.,
 the directory that the computer assumes we want to run commands in
 unless we explicitly specify something else.
 Here,
-the computer's response is `/users/vlad`,
-which is Vlad's [home directory](../../gloss.html#home-directory):
+the computer's response is `/users/swc`,
+which my [home directory](../../gloss.html#home-directory):
 
 ~~~
 $ pwd
 ~~~
 {:class="in"}
 ~~~
-/users/vlad
+/users/swc
 ~~~
 {:class="out"}
 
 > #### Alphabet Soup
-> 
+>
 > If the command to find out who we are is `whoami`, the command to find
 > out where we are ought to be called `whereami`, so why is it `pwd`
 > instead? The usual answer is that in the early 1970s, when Unix was
@@ -97,9 +97,10 @@ let's have a look at how the file system as a whole is organized.
 At the top is the [root directory](../../gloss.html#root-directory)
 that holds everything else.
 We refer to it using a slash character `/` on its own;
-this is the leading slash in `/users/vlad`.
+this is the leading slash in `/users/swc`.
 
 Inside that directory are several other directories:
+`2014-07-28-atanford` (which we will be using)
 `bin` (which is where some built-in programs are stored),
 `data` (for miscellaneous data files),
 `users` (where users' personal directories are located),
@@ -108,7 +109,7 @@ and so on:
 
 <img src="img/filesystem.svg" alt="The Filesystem" />
 
-We know that our current working directory `/users/vlad` is stored inside `/users`
+We know that our current working directory `/users/swc` is stored inside `/users`
 because `/users` is the first part of its name.
 Similarly,
 we know that `/users` is stored inside the root directory `/`
@@ -118,8 +119,7 @@ Underneath `/users`,
 we find one directory for each user with an account on this machine.
 The Mummy's files are stored in `/users/imhotep`,
 Wolfman's in `/users/larry`,
-and ours in `/users/vlad`,
-which is why `vlad` is the last part of the directory's name.
+and Vlad's in `/users/vlad`.
 
 <img src="img/home-directories.svg" alt="Home Directories" />
 
@@ -128,7 +128,7 @@ which is why `vlad` is the last part of the directory's name.
 > it refers to the root directory. When it appears *inside* a name,
 > it's just a separator.
 
-Let's see what's in Vlad's home directory by running `ls`,
+Let's see what's in my home directory by running `ls`,
 which stands for "listing":
 
 ~~~
@@ -136,13 +136,12 @@ $ ls
 ~~~
 {:class="in"}
 ~~~
-bin          data      mail       music
-notes.txt    papers    pizza.cfg  solar
-solar.pdf    swc
+2014-07-28-stanford    bin        data
+mail                   music      notes.txt
+papers                 pizza.cfg  solar
+solar.pdf
 ~~~
 {:class="out"}
-
-<img src="img/vlad-homedir.svg" alt="Vlad's Home Directory" />
 
 `ls` prints the names of the files and directories in the current directory in alphabetical order,
 arranged neatly into columns.
@@ -154,14 +153,15 @@ $ ls -F
 ~~~
 {:class="in"}
 ~~~
-bin/         data/     mail/      music/
-notes.txt    papers/   pizza.cfg  solar/
-solar.pdf    swc/
+2014-07-28-stanford/    bin/        data/
+mail/                   music/      notes.txt
+papers/                 pizza.cfg   solar/
+solar.pdf
 ~~~
 {:class="out"}
 
 Here,
-we can see that `/users/vlad` contains seven [sub-directories](../../gloss.html#sub-directory).
+we can see that `/users/swc` contains [sub-directories](../../gloss.html#sub-directory).
 The names that don't have trailing slashes,
 like `notes.txt`, `pizza.cfg`, and `solar.pdf`,
 are plain old files.
@@ -171,8 +171,8 @@ the shell thinks we're trying to run a command called `ls-F`,
 which doesn't exist.
 
 > #### What's In A Name?
-> 
-> You may have noticed that all of Vlad's files' names are "something dot
+>
+> You may have noticed that all of my files' names are "something dot
 > something". This is just a convention: we can call a file `mythesis` or
 > almost anything else we want. However, most people use two-part names
 > most of the time to help them (and their programs) tell different kinds
@@ -191,195 +191,131 @@ which doesn't exist.
 > cause the operating system to try to open it with a music player
 > when someone double-clicks it.
 
-Now let's take a look at what's in Vlad's `data` directory by running `ls -F data`,
-i.e.,
-the command `ls` with the [arguments](../../gloss.html#argument) `-F` and `data`.
-The second argument&mdash;the one *without* a leading dash&mdash;tells `ls` that
-we want a listing of something other than our current working directory:
+Let's go inside '2014-07-28-stanford' with 'cd'.
+'cd' stands for change directory.
 
 ~~~
-$ ls -F data
+$ cd 2014-07-28-stanford
 ~~~
 {:class="in"}
-~~~
-amino-acids.txt   elements/     morse.txt
-pdb/              planets.txt   sunspot.txt
-~~~
-{:class="out"}
 
-The output shows us that there are four text files and two sub-sub-directories.
-Organizing things hierarchically in this way helps us keep track of our work:
-it's possible to put hundreds of files in our home directory,
-just as it's possible to pile hundreds of printed papers on our desk,
-but it's a self-defeating strategy.
+`cd` doesn't print anything.
 
-Notice, by the way that we spelled the directory name `data`.
+Notice, by the way that we spelled the directory name.
 It doesn't have a trailing slash:
 that's added to directory names by `ls` when we use the `-F` flag to help us tell things apart.
 And it doesn't begin with a slash because it's a [relative path](../../gloss.html#relative-path),
 i.e., it tells `ls` how to find something from where we are,
 rather than from the root of the file system.
 
-> #### Parameters vs. Arguments
->
-> According to [Wikipedia](https://en.wikipedia.org/wiki/Parameter_(computer_programming)#Parameters_and_arguments),
-> the terms [argument](../../gloss.html#argument) and [parameter](../../gloss.html#parameter)
-> mean slightly different things.
-> In practice,
-> however,
-> most people use them interchangeably or inconsistently,
-> so we will too.
-
-If we run `ls -F /data` (*with* a leading slash) we get a different answer,
-because `/data` is an [absolute path](../../gloss.html#absolute-path):
-
-~~~
-$ ls -F /data
-~~~
-{:class="in"}
-~~~
-access.log    backup/    hardware.cfg
-network.cfg
-~~~
-{:class="out"}
-
 The leading `/` tells the computer to follow the path from the root of the filesystem,
 so it always refers to exactly one directory,
 no matter where we are when we run the command.
 
-What if we want to change our current working directory?
-Before we do this,
-`pwd` shows us that we're in `/users/vlad`,
-and `ls` without any arguments shows us that directory's contents:
+Let's make sure we are in '2014-07-28-stanford' with 'pwd'.
 
 ~~~
 $ pwd
 ~~~
 {:class="in"}
 ~~~
-/users/vlad
+/users/swc/2014-07-28-stanford
 ~~~
 {:class="out"}
+
+Let's look around with 'ls'.
+
 ~~~
 $ ls
 ~~~
 {:class="in"}
 ~~~
-bin/         data/     mail/      music/
-notes.txt    papers/   pizza.cfg  solar/
-solar.pdf    swc/
+shell     slides
 ~~~
 {:class="out"}
 
-We can use `cd` followed by a directory name to change our working directory.
-`cd` stands for "change directory",
-which is a bit misleading:
-the command doesn't change the directory,
-it changes the shell's idea of what directory we are in.
+Now let's look a little bit closer let's run 'ls -a'.
 
 ~~~
-$ cd data
-~~~
-{:class="in"}
-
-`cd` doesn't print anything,
-but if we run `pwd` after it, we can see that we are now in `/users/vlad/data`.
-If we run `ls` without arguments now,
-it lists the contents of `/users/vlad/data`,
-because that's where we now are:
-
-~~~
-$ pwd
+$ ls -a -F
 ~~~
 {:class="in"}
 ~~~
-/users/vlad/data
-~~~
-{:class="out"}
-~~~
-$ ls
-~~~
-{:class="in"}
-~~~
-amino-acids.txt   elements/     morse.txt
-pdb/              planets.txt   sunspot.txt
+./         ../      shell/
+slides/
 ~~~
 {:class="out"}
 
-We now know how to go down the directory tree:
-how do we go up?
-We could use an absolute path:
+-a stands for "show all"; it forces ls to show us file and directory names that begin with ., such as .. (which, if we're in /users/swc/2014-07-28-stanford/, refers to the /users/swc directory). As you can see, it also displays another special directory that's just called ., which means "the current working directory". It may seem redundant to have a name for it, but we'll see some uses for it soon.
+
+<img src="img/directories.png" alt="./ and .//" />
+
+Let's look at 'ls -F .' and 'ls -F ..'
 
 ~~~
-$ cd /users/vlad
-~~~
-{:class="in"}
-
-but it's almost always simpler to use `cd ..` to go up one level:
-
-~~~
-$ pwd
+$ ls -F .
 ~~~
 {:class="in"}
 ~~~
-/users/vlad/data
+shell     slides
 ~~~
 {:class="out"}
+
+~~~
+$ ls -F ..
+~~~
+{:class="in"}
+~~~
+2014-07-28-stanford/    bin/        data/
+mail/                   music/      notes.txt
+papers/                 pizza.cfg   solar/
+solar.pdf
+~~~
+{:class="out"}
+
+We recognize the directory contents.
+
+Let's go back to our home directory.
+
 ~~~
 $ cd ..
 ~~~
 {:class="in"}
-
-`..` is a special directory name meaning
-"the directory containing this one",
-or more succinctly,
-the [parent](../../gloss.html#parent-directory) of the current directory.
-Sure enough,
-if we run `pwd` after running `cd ..`, we're back in `/users/vlad`:
-
 ~~~
 $ pwd
 ~~~
 {:class="in"}
 ~~~
-/users/vlad
+/users/swc
 ~~~
 {:class="out"}
-
-The special directory `..` doesn't usually show up when we run `ls`.
-If we want to display it, we can give `ls` the `-a` flag:
-
-~~~
-$ ls -F -a
-~~~
-{:class="in"}
-~~~
-./           ../       bin/       data/
-mail/        music/    notes.txt  papers/
-pizza.cfg    solar/    solar.pdf    swc/
-~~~
-{:class="out"}
-
-`-a` stands for "show all";
-it forces `ls` to show us file and directory names that begin with `.`,
-such as `..` (which, if we're in `/users/vlad`, refers to the `/users` directory).
-As you can see,
-it also displays another special directory that's just called `.`,
-which means "the current working directory".
-It may seem redundant to have a name for it,
-but we'll see some uses for it soon.
 
 > #### Orthogonality
-> 
+>
 > The special names `.` and `..` don't belong to `ls`;
 > they are interpreted the same way by every program.
 > For example,
-> if we are in `/users/vlad/data`,
-> the command `ls ..` will give us a listing of `/users/vlad`.
+> if we are in `/users/swc/data`,
+> the command `ls ..` will give us a listing of `/users/swc`.
 > When the meanings of the parts are the same no matter how they're combined,
 > programmers say they are [orthogonal](../../gloss.html#orthogonal):
 > Orthogonal systems tend to be easier for people to learn
 > because there are fewer special cases and exceptions to keep track of.
+
+Let's take an excursion to the '/bin' directory.
+
+~~~
+$ cd /bin
+~~~
+{:class="in"}
+~~~
+$ ls
+~~~
+{:class="in"}
+
+Does anyone recognize any of the programs?
+
+How do we get back to our home directory?
 
 #### Nelle's Pipeline: Organizing Files
 
