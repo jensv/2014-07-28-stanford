@@ -100,7 +100,7 @@ We refer to it using a slash character `/` on its own;
 this is the leading slash in `/users/swc`.
 
 Inside that directory are several other directories:
-`2014-07-28-atanford` (which we will be using)
+`2014-07-28-stanford` (which we will be using)
 `bin` (which is where some built-in programs are stored),
 `data` (for miscellaneous data files),
 `users` (where users' personal directories are located),
@@ -191,8 +191,8 @@ which doesn't exist.
 > cause the operating system to try to open it with a music player
 > when someone double-clicks it.
 
-Let's go inside '2014-07-28-stanford' with 'cd'.
-'cd' stands for change directory.
+Let's go inside `2014-07-28-stanford` with `cd`.
+`cd` stands for change directory.
 
 ~~~
 $ cd 2014-07-28-stanford
@@ -212,7 +212,7 @@ The leading `/` tells the computer to follow the path from the root of the files
 so it always refers to exactly one directory,
 no matter where we are when we run the command.
 
-Let's make sure we are in '2014-07-28-stanford' with 'pwd'.
+Let's make sure we are in `2014-07-28-stanford` with `pwd`.
 
 ~~~
 $ pwd
@@ -223,7 +223,7 @@ $ pwd
 ~~~
 {:class="out"}
 
-Let's look around with 'ls'.
+Let's look around with `ls`.
 
 ~~~
 $ ls
@@ -234,7 +234,7 @@ shell     slides
 ~~~
 {:class="out"}
 
-Now let's look a little bit closer let's run 'ls -a'.
+Now let's look a little bit closer let's run `ls -a`.
 
 ~~~
 $ ls -a -F
@@ -250,7 +250,7 @@ slides/
 
 <img src="img/directories.png" alt="./ and .//" />
 
-Let's look at 'ls -F .' and 'ls -F ..'
+Let's look at `ls -F .` and `ls -F ..`
 
 ~~~
 $ ls -F .
@@ -302,7 +302,7 @@ $ pwd
 > Orthogonal systems tend to be easier for people to learn
 > because there are fewer special cases and exceptions to keep track of.
 
-Let's take an excursion to the '/bin' directory.
+Let's take an excursion to the `/bin` directory.
 
 ~~~
 $ cd /bin
