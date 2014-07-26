@@ -11,6 +11,7 @@ It's pretty obvious that if we want to be sure our programs are right, we need t
 1.  [Defensive Programming](../python/05-defensive.html)
 2.  [Exceptions](../extras/07-exceptions.html)
 3.  [Numbers](../extras/08-numbers.html)
-4.  [Summary]
+4.  [Nose: A Python Testing Framework]
+5.  [Summary]
 
 </div>

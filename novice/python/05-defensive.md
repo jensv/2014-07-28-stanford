@@ -137,7 +137,7 @@ AssertionError                            Traceback (most recent call last)
       4     x0, y0, x1, y1 = rect
 ----&gt; 5     assert x0 &lt; x1, &#39;Invalid X coordinates&#39;
       6     assert y0 &lt; y1, &#39;Invalid Y coordinates&#39;
-      7 
+      7
 
 AssertionError: Invalid X coordinates</pre>
 </div>
@@ -174,10 +174,10 @@ AssertionError                            Traceback (most recent call last)
 ----&gt; 1 print normalize_rectangle( (0.0, 0.0, 5.0, 1.0) )
 
 &lt;ipython-input-4-9f8adbfdcfc9&gt; in normalize_rectangle(rect)
-     16 
+     16
      17     assert 0 &lt; upper_x &lt;= 1.0, &#39;Calculated upper X coordinate invalid&#39;
 ---&gt; 18     assert 0 &lt; upper_y &lt;= 1.0, &#39;Calculated upper Y coordinate invalid&#39;
-     19 
+     19
      20     return (0, 0, upper_x, upper_y)
 
 AssertionError: Calculated upper Y coordinate invalid</pre>
@@ -413,10 +413,4 @@ AssertionError: </pre>
 <li>Keep track of what you've done.</li>
 <li>Be humble.</li>
 </ul>
-</div>
-
-
-<div class="">
-<h4 id="next-steps">Next Steps</h4>
-<p>We have now seen the basics of building and testing Python code in the IPython Notebook. The last thing we need to learn is how to build command-line programs that we can use in pipelines and shell scripts, so that we can integrate our tools with other people's work. This will be the subject of our next and final lesson.</p>
 </div>
