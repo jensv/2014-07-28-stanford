@@ -1,7 +1,7 @@
 ---
 layout: lesson
 root: ../..
-title: Nose: A Python Testing Framework
+title: Nose A Python Testing Framework
 ---
 
 ## Testing Frameworks
@@ -91,7 +91,7 @@ We see a lot of tests. A few tests fail and a few tests are skipped. Skipped tes
 
 Nose has some helpful tools. Let's take a quick look at them.
 
-#### Assert functions
+### Assert functions
 
 Nose defines a number of assert functions which can be used to test floating point numbers:
 
@@ -103,8 +103,7 @@ assert_almost_equal(a, b)
 assert_
 assert_true(a)
 assert_false(a)
-assert_is_instance(a, b)
-</pre>
+assert_is_instance(a, b)</pre>
 </div>
 
 Numpy offers similar functions for testing arrays:
@@ -114,11 +113,10 @@ Numpy offers similar functions for testing arrays:
 
 
 assert_array_equal(a, b)
-assert_array_almost_equal(a, b)
-</pre>
+assert_array_almost_equal(a, b)</pre>
 </div>
 
-#### Setup
+### Setup
 
 More complicated codes require some setup for testing. For example you may need to read in sample data file as an array
 and pass it to your test functions. Something we run our tests on is called a fixture.
