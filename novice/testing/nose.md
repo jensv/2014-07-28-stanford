@@ -28,6 +28,30 @@ tests they contain.
 
 To see how this works, let's look at how we'd use it to test the range_overlap example.
 
+We have to put our range_overlap in a file:
+
+~~~
+$  nano ranges.py
+~~~
+{:class="in"}
+
+<div class="in">
+<pre>def range_overlap(ranges):
+    """Return common overlap among a set of [low, high] ranges"""
+    lowest = ranges[0][0]
+    highest = ranges[0][1]
+    for (low, high) in ranges:
+        lowest = max(lowest, low)
+        highest = min(highest, high)
+        if lowest > highest:
+            return None
+        elif lowest == highest:
+            return None
+        else:
+            return (lowest, highest)
+</pre>
+</div>
+
 Let's create a file test_range_overlap.py with nano:
 
 ~~~
@@ -53,7 +77,8 @@ def test_single_range():
 
 def test_negative_range():
     assert range_overlap([ (0.0, 1.0), (0.0, 2.0),
-                           (-1.0, 1.0) ]) == (0.0, 1.0)</pre>
+                           (-1.0, 1.0) ]) == (0.0, 1.0)
+</pre>
 </div>
 
 Let's run the tests:
