@@ -9,9 +9,9 @@ It's pretty obvious that if we want to be sure our programs are right, we need t
 <div class="toc" markdown="1">
 
 1.  [Defensive Programming](../python/05-defensive.html)
-2.  [Exceptions](../extras/07-exceptions.html)
-3.  [Numbers](../extras/08-numbers.html)
-4.  [Nose: A Python Testing Framework]
-5.  [Summary]
+2.  [Nose: A Python Testing Framework](nose.html)
+3.  [Summary Exercise]
+4.  [Exceptions](../extras/07-exceptions.html)
+5.  [Numbers](../extras/08-numbers.html)
 
 </div>
