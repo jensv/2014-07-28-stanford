@@ -124,8 +124,9 @@ Nose defines a number of assert functions which can be used to test floating poi
 <div class="in">
 <pre>from nose.tools import *
 
-assert_almost_equal(a, b)
-assert_
+assert_almost_equal(a, b, places=, delta=)
+assert_greater_equals(a, b)
+assert_greater(a, b)
 assert_true(a)
 assert_false(a)
 assert_is_instance(a, b)</pre>
@@ -136,8 +137,7 @@ Numpy offers similar functions for testing arrays:
 <div class="in">
 <pre>from numpy.testing import *
 
-assert_array_equal(a, b)
-assert_array_almost_equal(a, b)</pre>
+assert_allclose(a, b, atol=, rtol=)</pre>
 </div>
 
 #### Setup
