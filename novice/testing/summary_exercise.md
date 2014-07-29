@@ -51,8 +51,8 @@ The important part of this exercise is to come up with tests.
 4.  Run nose.
 5.  Create a github repository, add it as a remote to your local repo, and push your local repo.
 6.  Get your partners code on your machine. Either:
---1.  Pick a partner, clone  your partner's Github repo.
---2.  Pick a partner, fork  your partner's Github repo, and clone the foked repo onto your machine.
+    1.  Pick a partner, clone  your partner's Github repo.
+    2.  2.  Pick a partner, fork  your partner's Github repo, and clone the foked repo onto your machine.
 7.  Write tests to break their code.
 
 ## Optional Command Line Arguments
